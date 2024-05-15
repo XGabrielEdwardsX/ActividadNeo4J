@@ -1,0 +1,15 @@
+idContenido,tipoContenido,directorId
+1,Pelicula,2
+1,Pelicula,3
+2,Pelicula,1
+3,Episodio,4
+1,Episodio,2
+2,Pelicula,6
+3,Episodio,7
+2,Pelicula,6
+5,Episodio,6
+5,Pelicula,1
+5,Pelicula,2
+8,Episodio,5
+9,Pelicula,7
+9,Pelicula,8

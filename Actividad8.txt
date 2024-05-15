@@ -186,15 +186,6 @@ MATCH (u:Usuario {idUsuario: toInteger(row.idUsuario)}),
       (p:Pelicula {idPelicula: toInteger(row.idContenido)})
 MERGE (u)-[:REACCIONA_A {tipoReaccion: row.tipoReaccion, fechaReaccion: row.fechaReaccion}]->(p);
 
-// Usuario REACCIONA_A Serie
-
-LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/ReaccionaA.csv" AS row
-WITH row
-WHERE row.tipoContenido = 'Pelicula'
-MATCH (u:Usuario {idUsuario: toInteger(row.idUsuario)}),
-      (p:Pelicula {idPelicula: toInteger(row.idContenido)})
-MERGE (u)-[:REACCIONA_A {tipoReaccion: row.tipoReaccion, fechaReaccion: row.fechaReaccion}]->(p);
-
 // Usuario REACCIONA_A Episodio
 
 LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/ReaccionaA.csv" AS row

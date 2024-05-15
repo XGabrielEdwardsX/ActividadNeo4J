@@ -65,7 +65,8 @@ CREATE (:Pelicula {
 LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/temporada.csv" AS row
 CREATE (:Temporada {
     idTemporada: toInteger(row.idTemporada),
-    anioLanzamiento: toInteger(row.anioLanzamiento)
+    anioLanzamiento: toInteger(row.anioLanzamiento),
+    numeroTemporada: row.numeroTemporada
 });
 
 // Crear genero

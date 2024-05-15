@@ -6,7 +6,7 @@ LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/A
 CREATE (:Pais {
   idPais: toInteger(row.idPais),
   nombre: row.nombre
-})
+});
 
 // Crear Usuario
 
@@ -19,7 +19,7 @@ CREATE (:Usuario {
     sexo: row.sexo,
     teléfono_móvil: row.telefono_movil,
     email: row.email
-})
+});
 
 // Crear Director
 LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/director.csv" AS row
@@ -29,7 +29,7 @@ CREATE (:Director {
     edad: toInteger(row.edad),
     telefono: row.telefono,
     sexo: row.sexo
-})
+});
 
 // Crear Serie
 LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/serie.csv" AS row
@@ -38,7 +38,7 @@ CREATE (:Serie {
     titulo: row.titulo,
     anioLanzamiento: toInteger(row.anioLanzamiento),
     resumen: row.resumen
-})
+});
 
 // Crear Episodio
 
@@ -48,7 +48,7 @@ CREATE (:Episodio {
     titulo: row.titulo,
     numEpisodio: toInteger(row.anioLanzamiento),
     duracion: row.duracion
-})
+});
 
 // Crear Pelicula
 
@@ -58,7 +58,7 @@ CREATE (:Pelicula {
     titulo: row.titulo,
     anioLanzamiento: toInteger(row.anioLanzamiento),
     resumen: row.resumen
-})
+});
 
 // Crear temporada
 
@@ -66,7 +66,7 @@ LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/A
 CREATE (:Temporada {
     idTemporada: toInteger(row.idTemporada),
     anioLanzamiento: toInteger(row.anioLanzamiento)
-})
+});
 
 // Crear genero
 
@@ -74,7 +74,7 @@ LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/A
 CREATE (:Genero {
     idGenero: toInteger(row.idGenero),
     nombre: row.nombre
-})
+});
 
 // RELACIONES
 

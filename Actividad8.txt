@@ -17,7 +17,7 @@ CREATE (:Usuario {
     edad: toInteger(row.edad),
     teléfono: row.teléfono,
     sexo: row.sexo,
-    teléfono_móvil: row.teléfono_móvil,
+    teléfono_móvil: row.telefono_movil,
     email: row.email
 })
 

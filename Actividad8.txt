@@ -153,4 +153,10 @@ MATCH (s:Serie {idSerie: toInteger(row.idContenido)}),
       (g:Genero {idGenero: toInteger(row.idGenero)})
 MERGE (s)-[:PERTENECE_A]->(g);
 
+// Serie TIENE_UNA temporada
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/TieneUna.csv" AS row
+MATCH (s:Serie {idSerie: toInteger(row.idSerie)}),
+      (t:Temporada {idTemporada: toInteger(row.idTemporada)})
+MERGE (s)-[:TIENE_UNA]->(t);
+
 

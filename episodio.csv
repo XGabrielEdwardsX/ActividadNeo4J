@@ -1,4 +1,4 @@
- idEpisodio,titulo,numEpisodio,duracion
+idEpisodio,titulo,numEpisodio,duracion
 1,Encuentro Inesperado,1,45 minutos
 2,El Baile de las Emociones,2,42 minutos
 3,Confesiones a la Luz de la Luna,3,40 minutos
@@ -11,3 +11,111 @@
 10,El Corazon Roto,4,46 minutos
 11,Reencuentros Inesperados,5,37 minutos
 12,El Final Feliz,6,49 minutos
+13,El Despertar del Espacio,1,40 minutos
+14,Explorando Nuevas Fronteras,2,45 minutos
+15,Encuentros Extraterrestres,3,42 minutos
+16,El Misterio de los Planetas Desconocidos,4,48 minutos
+17,Aventuras en la Nebulosa Oscura,5,41 minutos
+18,El Ultimo Viaje,6,47 minutos
+19,Renacimiento Estelar,1,43 minutos
+20,El Enigma de los Agujeros Negros,2,39 minutos
+21,Desafíos en el Espacio Profundo,3,44 minutos
+22,La Guerra de las Galaxias,4,50 minutos
+23Secretos de la Via Lactea,5,37 minutos
+24,El Destino Final,6,46 minutos
+25,El Viaje Inaugural,1,42 minutos
+26,Colonizando el Planeta Rojo,2,47 minutos
+27,Conflictos en la Frontera,3,40 minutos
+28,Rebelion en Marte,4,45 minutos
+29,El Precio de la Libertad,5,39 minutos
+30,El Futuro de la Humanidad,6,48 minutos
+31,Nuevos Horizontes,1,44 minutos
+32,El Despertar de la Conciencia,2,41 minutos
+33,La Batalla por Marte,3,46 minutos
+34,Traiciones y Alianzas,4,38 minutos
+35,El Destino de Dos Mundos,5,43 minutos
+36,El Ultimo Aliento,6,50 minutos
+37,Ascenso al Trono,1,55 minutos
+38,Un Nuevo Reinado,2,50 minutos
+39,Pruebas de Liderazgo,3,48 minutos
+40,Secretos de Palacio,4,52 minutos
+41,Crisis Matrimonial,5,47 minutos
+42,La Coronacion,6,60 minutos
+43,El Desafio de la Modernidad,1,58 minutos
+44,La Prueba de la Lealtad,2,53 minutos
+45,Crisis Politica,3,49 minutos
+46,Secretos de Estado,4,55 minutos
+47,El Costo de la Corona,5,50 minutos
+48,El Fin de una Era,6,62 minutos
+49,El Himno Nacional,1,60 minutos
+50,15 Millones de Méritos,2,62 minutos
+51,Toda Tu Historia,3,55 minutos
+52,El Regalo,4,58 minutos
+53,Oso Blanco,5,57 minutos
+54,El Momento Waldo,6,59 minutos
+55,Oso Blanco,1,58 minutos
+56,El Momento Waldo,2,60 minutos
+57,Trampa para Inocentes,3,56 minutos
+58,Cabeza de Metal,4,61 minutos
+59,El Hombre Contra el Fuego,5,63 minutos
+60,Blanco Navidad,6,64 minutos
+61,El Comienzo del Camino,1,55 minutos
+62,Los Limites de la Razon,2,53 minutos
+63,Antiguas Leyendas,3,57 minutos
+64,Banquete de Lobos,4,50 minutos
+65,Bautismo de Fuego,5,56 minutos
+66,Muestrame el Camino,6,58 minutos
+67,El Regreso del Lobo,1,54 minutos
+68,Corazon de Piedra,2,52 minutos
+69,Lo que Se Pierde,3,55 minutos
+70,Luz en la Oscuridad,4,51 minutos
+71,Sangre de los Elfos,5,57 minutos
+72,El Fin del Viaje,6,60 minutos
+73,El Regreso del Peaky Blinders,1,52 minutos
+74,Dias de Ceniza,2,49 minutos
+75,Por Quien Doblan las Campanas,3,47 minutos
+76,El Encargo,4,55 minutos
+77,La Noche Es Oscura,5,50 minutos
+78,El Enemigo del Abismo,6,53 minutos
+79,El Baile,1,48 minutos
+80,Los Agentes,2,51 minutos
+81,Los Ratones y los Hombres,3,47 minutos
+82,La Calma Antes de la Tormenta,4,54 minutos
+83,El Enganio,5,49 minutos
+84,El Viento Que Sopla,6,52 minutos
+85,El Comienzo del Viaje,1,40 minutos
+86,El Ninio,2,35 minutos
+87,El Pueblo,3,38 minutos
+88,El Santuario,4,42 minutos
+89,La Pistola,5,37 minutos
+90,La Prisión,6,45 minutos
+91,El Mariscal,1,41 minutos
+92,El Pasajero,2,39 minutos
+93,La Heredera,3,43 minutos
+94,La Hechicera,4,37 minutos
+95,La Tragedia,5,46 minutos
+96,El Rescate,6,48 minutos
+97,Piloto,1,23 minutos
+98,Dia de Salud,2,22 minutos
+99,El Cliente,3,23 minutos
+100,La Fiesta,4,21 minutos
+101,Beisbol,5,24 minutos
+102,La Semana de la Diversidad,6,22 minutos
+103,La Alianza,1,22 minutos
+104,El Baile de la Oficina,2,23 minutos
+105,Estadisticas,3,22 minutos
+106,El Incendio,4,21 minutos
+107,Halloween,5,24 minutos
+108,El Aviso,6,22 minutos
+109,Un Estudio en Rosa,1,88 minutos
+110,El Banquero Ciego,2,88 minutos
+111,El Gran Juego,3,90 minutos
+112,Un Escandalo en Belgravia,4,89 minutos
+113,El Sabueso de los Baskerville,5,86 minutos
+114,La Caida de Reichenbach,6,94 minutos
+115,La Vuelta de Sherlock Holmes,1,90 minutos
+116,El Signo de los Tres,2,88 minutos
+117,Su Ultimo Voto,3,92 minutos
+118,Los Seis Thatchers,4,89 minutos
+119,El Detective Mentiroso,5,90 minutos
+120,El Problema Final,6,95 minutos

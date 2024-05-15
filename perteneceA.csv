@@ -1,1 +1,8 @@
-
+idcontenido,idTipoContenido,idGenero
+2,pelicula,3
+1,serie,1
+2,pelicula,4
+3,pelicula,5
+5,pelicula,6
+4,serie,8
+7,serie,7

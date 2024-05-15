@@ -3,15 +3,18 @@ idcontenido,idTipoContenido,idGenero
 2,pelicula,1
 3,pelicula,4
 4,pelicula,5
+4,pelicula,6
 5,pelicula,6
 6,pelicula,8
 7,pelicula,7
+7,pelicula,1
 8,pelicula,9
 9,pelicula,2
 10,pelicula,10
 11,pelicula,9
 12,pelicula,3
 1,serie,4
+1,serie,5
 2,serie,5
 3,serie,1
 4,serie,3
@@ -20,4 +23,5 @@ idcontenido,idTipoContenido,idGenero
 7,serie,8
 8,serie,7
 9,serie,1
+9,serie,9
 10,serie,6

@@ -1,4 +1,4 @@
-idUsuario,nombre,edad,telefono,sexo,telefono movil,email
+idUsuario,nombre,edad,telefono,sexo,telefono_movil,email
 1,Juan Perez,30,55678974,H,5558790,JuanPerez@gmail.com
 2,Maria Carrazco,56,307896579,M,3008796754,JuanaMaria@gmail.com
 3,Jacobo Delgado,18,30578910,H,3156778950,Juan_jacobo.Melo@uao.edu.co

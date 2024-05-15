@@ -24,5 +24,11 @@ idUsuario,idContenido,tipoContenido,tipoReaccion,fechaReaccion
 8,15,Temporada,"Me encanta","2024-01-08"
 9,17,Temporada,"Me gusta","2024-01-09"
 10,19,Temporada,"No me gusta","2024-01-10"
+3,1,Serie,"Me encanta","2024-02-14"
+5,1,Serie,"No me gusta","2020-04-15"
+8,1,Serie,"Me encanta","2019-07-12"
+1,1,Serie,"Me gusta","2020-01-11"
+2,2,Serie,"No me gusta","2014-06-09"
+3,1,Serie,"Me gusta","2019-10-12"
 
 

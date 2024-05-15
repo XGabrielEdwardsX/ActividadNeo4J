@@ -137,4 +137,20 @@ MATCH (e:Episodio {idEpisodio: toInteger(row.idEpisodio)}),
       (t:Temporada {idTemporada: toInteger(row.idTemporada)})
 MERGE (e)-[:ES_PARTE_DE]->(t);
 
+// Pelicula PERTENECE_A genero
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/perteneceA.csv" AS row
+WITH row
+WHERE row.idTipoContenido = 'Pelicula'
+MATCH (p:Pelicula {idPelicula: toInteger(row.idContenido)}),
+      (g:Genero {idGenero: toInteger(row.idGenero)})
+MERGE (p)-[:PERTENECE_A]->(g);
+
+// Serie PERTENECE_A genero
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/perteneceA.csv" AS row
+WITH row
+WHERE row.idTipoContenido = 'Serie'
+MATCH (s:Serie {idSerie: toInteger(row.idContenido)}),
+      (g:Genero {idGenero: toInteger(row.idGenero)})
+MERGE (s)-[:PERTENECE_A]->(g);
+
 

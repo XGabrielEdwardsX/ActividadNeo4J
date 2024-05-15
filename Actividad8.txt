@@ -159,4 +159,32 @@ MATCH (s:Serie {idSerie: toInteger(row.idSerie)}),
       (t:Temporada {idTemporada: toInteger(row.idTemporada)})
 MERGE (s)-[:TIENE_UNA]->(t);
 
+// Usuario MIRA pelicula
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/Mira.csv" AS row
+WITH row
+WHERE row.tipoContenido = 'Pelicula'
+MATCH (u:Usuario {idUsuario: toInteger(row.idUsuario)}),
+      (p:Pelicula {idPelicula: toInteger(row.idContenido)})
+MERGE (u)-[:MIRA {fechaVisualizacion: row.fechaVisualizacion}]->(p);
+
+// Usuario MIRA serie
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/Mira.csv" AS row
+WITH row
+WHERE row.tipoContenido = 'Serie'
+MATCH (u:Usuario {idUsuario: toInteger(row.idUsuario)}),
+      (s:Serie {idSerie: toInteger(row.idContenido)})
+MERGE (u)-[:MIRA {fechaVisualizacion: row.fechaVisualizacion}]->(s);
+
+// Usuario MIRA episodio
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/Mira.csv" AS row
+WITH row
+WHERE row.tipoContenido = 'Episodio'
+MATCH (u:Usuario {idUsuario: toInteger(row.idUsuario)}),
+      (e:Episodio {idEpisodio: toInteger(row.idContenido)})
+MERGE (u)-[:MIRA {fechaVisualizacion: row.fechaVisualizacion}]->(e);
+
+
+
 

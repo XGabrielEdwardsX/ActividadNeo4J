@@ -1,0 +1,134 @@
+// CREACION DE ENTIDADES
+
+// Crear Pais
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/pais.csv" AS row
+CREATE (:Pais {
+  idPais: toInteger(row.idPais),
+  nombre: row.nombre
+})
+
+// Crear Usuario
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/usuario.csv" AS row
+CREATE (:Usuario {
+    idUsuario: toInteger(row.idUsuario),
+    nombre: row.nombre,
+    edad: toInteger(row.edad),
+    teléfono: row.teléfono,
+    sexo: row.sexo,
+    teléfono_móvil: row.teléfono_móvil,
+    email: row.email
+})
+
+// Crear Director
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/director.csv" AS row
+CREATE (:Director {
+    idDirector: toInteger(row.idDirector),
+    nombre: row.nombre,
+    edad: toInteger(row.edad),
+    telefono: row.telefono,
+    sexo: row.sexo
+})
+
+// Crear Serie
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/serie.csv" AS row
+CREATE (:Serie {
+    idSerie: toInteger(row.idSerie),
+    titulo: row.titulo,
+    anioLanzamiento: toInteger(row.anioLanzamiento),
+    resumen: row.resumen
+})
+
+// Crear Episodio
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/episodio.csv" AS row
+CREATE (:Episodio {
+    idEpisodio: toInteger(row.idEpisodio),
+    titulo: row.titulo,
+    numEpisodio: toInteger(row.anioLanzamiento),
+    duracion: row.duracion
+})
+
+// Crear Pelicula
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/pelicula.csv" AS row
+CREATE (:Pelicula {
+    idPelicula: toInteger(row.idPelicula),
+    titulo: row.titulo,
+    anioLanzamiento: toInteger(row.anioLanzamiento),
+    resumen: row.resumen
+})
+
+// Crear temporada
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/temporada.csv" AS row
+CREATE (:Temporada {
+    idTemporada: toInteger(row.idTemporada),
+    anioLanzamiento: toInteger(row.anioLanzamiento)
+})
+
+// Crear genero
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/genero.csv" AS row
+CREATE (:Genero {
+    idGenero: toInteger(row.idGenero),
+    nombre: row.nombre
+})
+
+// RELACIONES
+
+// Relación DIRIGIDA_POR para Películas
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/DirigadaPor.csv" AS row
+WITH row
+WHERE row.tipoContenido = 'Pelicula'
+MATCH (d:Director {idDirector: toInteger(row.directorId)}),
+      (c:Pelicula {idPelicula: toInteger(row.idContenido)})
+MERGE (c)-[:DIRIGIDA_POR]->(d);
+
+// Relación DIRIGIDA_POR para Episodios
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/DirigadaPor.csv" AS row
+WITH row
+WHERE row.tipoContenido = 'Episodio'
+MATCH (d:Director {idDirector: toInteger(row.directorId)}),
+      (e:Episodio {idEpisodio: toInteger(row.idContenido)})
+MERGE (e)-[:DIRIGIDA_POR]->(d);
+
+// Relacion TIENE_NACIONALIDAD para director
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/TieneNacionalidad.csv" AS row
+WITH row
+WHERE row.tipoEntidad = 'Director'
+MATCH (d:Director {idDirector: toInteger(row.entidadId)}),
+      (p:Pais {idPais: toInteger(row.paisId)})
+MERGE (d)-[:TIENE_NACIONALIDAD]->(p);
+
+// Relacion TIENE_NACIONALIDAD para usuario
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/TieneNacionalidad.csv" AS row
+WITH row
+WHERE row.tipoEntidad = 'Usuario'
+MATCH (u:Usuario {idUsuario: toInteger(row.entidadId)}),
+      (p:Pais {idPais: toInteger(row.paisId)})
+MERGE (u)-[:TIENE_NACIONALIDAD]->(p);
+
+
+// Relación TIENE_ORIGEN para Películas
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/TieneOrigen.csv" AS row
+WITH row
+WHERE row.TipoContenido = 'Pelicula'
+MATCH (p:Pais {idPais: toInteger(row.idPais)}),
+      (c:Pelicula {idPelicula: toInteger(row.IdContenido)})
+MERGE (c)-[:TIENE_ORIGEN]->(p);
+
+// Relación TIENE_ORIGEN para Series
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/TieneOrigen.csv" AS row
+WITH row
+WHERE row.TipoContenido = 'Serie'
+MATCH (p:Pais {idPais: toInteger(row.idPais)}),
+      (s:Serie {idSerie: toInteger(row.IdContenido)})
+MERGE (s)-[:TIENE_ORIGEN]->(p);
+
+

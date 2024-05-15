@@ -14,7 +14,7 @@ idUsuario,idContenido,tipoContenido,tipoReaccion,fechaReaccion
 8,12,Pelicula,"Me gusta","2020-09-29"
 2,10,Episodio,"Me encanta","2024-10-15"
 3,9,Episodio,"Me gusta","2021-01-24"
-1,1,Temporada,"Me gusta","2024-01-01"
+5,1,Temporada,"Me gusta","2024-01-01"
 2,3,Temporada,"Me encanta","2024-01-02"
 3,5,Temporada,"No me gusta","2024-01-03"
 4,7,Temporada,"Me gusta","2024-01-04"

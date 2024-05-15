@@ -1,3 +1,13 @@
 idUsuario,nombre,edad,teléfono,sexo,teléfono móvil,email
-1,Juan Pérez,30,555-1234,H,555-5678,jperez@example.com
-2, Maria Carrazco, 56, 3225467819,M, 5657489201, maria@example.uao.edu.co
+1,Juan Perez,30,55678974,H,5558790,JuanPerez@gmail.com
+2,Maria Carrazco,56,307896579,M,3008796754,JuanaMaria@gmail.com
+3,Jacobo Delgado,18,30578910,H,3156778950,Juan_jacobo.Melo@uao.edu.co
+4,Yaxul Santiago,21,3187964,H,3226578940,Yaxul.cardenas@uao.edu.co
+5,Gabriel Edwards,21,3145678,H,3226244468,gabrieledwards1603@gmail.com
+6,Yalany Willy Antonio,20,34568684,H,3109856789,yalany@gmail.com
+7,David Melo,19,36789067,H,3105678956,DavidMelo@gmail.com
+8,Nicolas Cuaran,20,3056789,H,3126754321,CuaranNico@gmail.com
+9,Isabella Perez,18,30567895,M,3206547819,Isa@gmail.com
+10,Eder Masso,35,30564321,H,3156789043,EderMasso@uao.edu.co
+11,Juana Paola,47,30543279,M, 3147856423,PaolaGutierrez@uao.edu.co
+12,Paula Martinez,18,30789564,M,3156789453,Paula@uao.edu.co

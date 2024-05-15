@@ -204,6 +204,15 @@ MATCH (u:Usuario {idUsuario: toInteger(row.idUsuario)}),
       (e:Episodio {idEpisodio: toInteger(row.idContenido)})
 MERGE (u)-[:REACCIONA_A {tipoReaccion: row.tipoReaccion, fechaReaccion: row.fechaReaccion}]->(e);
 
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/XGabrielEdwardsX/ActividadNeo4J/main/ReaccionaA.csv" AS row
+WITH row
+WHERE row.tipoContenido = 'Temporada'
+MATCH (u:Usuario {idUsuario: toInteger(row.idUsuario)}),
+      (t:Temporada {idTemporada: toInteger(row.idContenido)}),
+      (s:Serie)
+WHERE (s)-[:TIENE_UNA]->(t)
+MERGE (u)-[:REACCIONA_A {tipoReaccion: row.tipoReaccion, fechaReaccion: row.fechaReaccion}]->(s);
+
 
 
 

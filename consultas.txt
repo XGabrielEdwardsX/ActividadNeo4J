@@ -1,8 +1,40 @@
 // CONSULTAS
+// 1) Consultar el historial de los contenidos multimedia visualizados por un usuario. Mostrar título, director, país de origen y fecha de visualización
+MATCH (u:Usuario {idUsuario: toInteger(7)})-[:MIRA]->(c)
+OPTIONAL MATCH (c)-[:DIRIGIDA_POR]->(d:Director)
+OPTIONAL MATCH (c)-[:TIENE_ORIGEN]->(p:Pais)
+RETURN c.titulo AS Titulo,
+       d.nombre AS Director,
+       p.nombre AS Pais,
+       c.fechaVisualizacion AS FechaVisualizacion;
 
+// 2) ¿Cuáles son los contenidos multimedia más demandados por los clientes de un sexo (hombre/mujer)?
 MATCH (u:Usuario {sexo: "GENERO"})-[v:MIRA]->(contenido)
 OPTIONAL MATCH (contenido)-[:PERTENECE_A]->(g:Genero)
 OPTIONAL MATCH (contenido)-[:ES_PARTE_DE]->()-[:TIENE_UNA]->()-[:PERTENECE_A]->(g:Genero)
 WITH g, COUNT(DISTINCT contenido) AS totalContenidos
 RETURN g.nombre AS Género, totalContenidos
 ORDER BY totalContenidos DESC;
+
+//3) ¿Cuáles son los principales contenidos multimedia visualizados por los clientes con un origen cualquiera y rango de edad?
+MATCH (u:Usuario)-[:MIRA]->(c)
+WHERE u.edad >= 50 AND u.edad <= 60
+RETURN c.titulo AS Contenido, COUNT(*) AS Visualizaciones
+ORDER BY Visualizaciones DESC
+LIMIT 10;
+
+//4)¿Cuál es el contenido multimedia más visualizado? Mostrar el título, país de origen, fecha de lanzamiento y número de visualizaciones
+MATCH (c)-[:MIRA]->(content),
+      (content)-[:TIENE_ORIGEN]->(p:Pais)
+RETURN content.titulo AS Titulo,
+       p.nombre AS PaisOrigen,
+       content.anioLanzamiento AS FechaLanzamiento,
+       COUNT(c) AS Visualizaciones
+ORDER BY Visualizaciones DESC
+LIMIT 1;
+
+//5)Sugerir contenido similar respecto a un género multimedia visualizado por el usuario previamente
+
+//6)Sugerir contenido basado en un tipo de reacción como puede ser 'Me gusta' o 'Me encanta' respecto a otros usuarios que sean del mismo país
+
+

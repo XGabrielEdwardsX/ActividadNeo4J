@@ -9,12 +9,11 @@ RETURN c.titulo AS Titulo,
        c.fechaVisualizacion AS FechaVisualizacion;
 
 // 2) ¿Cuáles son los contenidos multimedia más demandados por los clientes de un sexo (hombre/mujer)?
-MATCH (u:Usuario {sexo: "GENERO"})-[v:MIRA]->(contenido)
-OPTIONAL MATCH (contenido)-[:PERTENECE_A]->(g:Genero)
-OPTIONAL MATCH (contenido)-[:ES_PARTE_DE]->()-[:TIENE_UNA]->()-[:PERTENECE_A]->(g:Genero)
-WITH g, COUNT(DISTINCT contenido) AS totalContenidos
-RETURN g.nombre AS Género, totalContenidos
-ORDER BY totalContenidos DESC;
+MATCH (u:Usuario)-[:MIRA]->(content)
+WHERE u.sexo = 'H'  
+RETURN content.titulo AS Titulo, COUNT(*) AS Visualizaciones
+ORDER BY Visualizaciones DESC
+LIMIT 5;
 
 //3) ¿Cuáles son los principales contenidos multimedia visualizados por los clientes con un origen cualquiera y rango de edad?
 MATCH (u:Usuario)-[:MIRA]->(c)
@@ -44,5 +43,14 @@ RETURN recommended.titulo AS Titulo, g.nombre AS Genero
 LIMIT 5;
 
 //6)Sugerir contenido basado en un tipo de reacción como puede ser 'Me gusta' o 'Me encanta' respecto a otros usuarios que sean del mismo país
-
+//NO GENERA NADA
+MATCH (u:Usuario {idUsuario: toInteger(7)})-[:TIENE_NACIONALIDAD]->(p:Pais)
+MATCH (u2:Usuario)-[:TIENE_NACIONALIDAD]->(p)
+WHERE u2 <> u
+MATCH (u2)-[r:REACCIONA_A]->(content)
+WHERE r.tipoReaccion = 'Me gusta'
+WITH content, COUNT(*) AS popularity
+RETURN content.titulo AS Titulo, popularity
+ORDER BY popularity DESC
+LIMIT 10;
 

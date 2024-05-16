@@ -34,6 +34,14 @@ ORDER BY Visualizaciones DESC
 LIMIT 1;
 
 //5)Sugerir contenido similar respecto a un género multimedia visualizado por el usuario previamente
+MATCH (u:Usuario {idUsuario: toInteger(10)})-[:MIRA]->(content)
+MATCH (content)-[:PERTENECE_A]->(g:Genero)
+WITH g, u
+MATCH (g)<-[:PERTENECE_A]-(recommended)
+WHERE NOT (u)-[:MIRA]->(recommended)
+AND (recommended: Pelicula OR recommended: Serie OR recommended: Episodio) // Asegúrate de usar las etiquetas correctas que existen en tu base de datos
+RETURN recommended.titulo AS Titulo, g.nombre AS Genero
+LIMIT 5;
 
 //6)Sugerir contenido basado en un tipo de reacción como puede ser 'Me gusta' o 'Me encanta' respecto a otros usuarios que sean del mismo país
 

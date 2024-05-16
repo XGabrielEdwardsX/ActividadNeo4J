@@ -9,5 +9,43 @@ idUsuario,nombre,edad,telefono,sexo,telefono_movil,email
 8,Nicolas Cuaran,20,3056789,H,3126754321,CuaranNico@gmail.com
 9,Isabella Perez,18,30567895,M,3206547819,Isa@gmail.com
 10,Eder Masso,35,30564321,H,3156789043,EderMasso@uao.edu.co
-11,Juana Paola,47,30543279,M, 3147856423,PaolaGutierrez@uao.edu.co
+11,Juana Paola,47,30543279,M,3147856423,PaolaGutierrez@uao.edu.co
 12,Paula Martinez,18,30789564,M,3156789453,Paula@uao.edu.co
+13,Miguel Lopez,25,30543212,H,3187654321,miguellopez@gmail.com
+14,Laura Gonzalez,32,31098765,M,3007654321,lauragonzalez@gmail.com
+15,Daniel Ramirez,40,31234567,H,3109876543,daniel.ramirez@gmail.com
+16,Sofia Hernandez,28,31456789,M,3009876543,sofiahernandez@gmail.com
+17,Diego Rodriguez,24,32098765,H,3187654321,drodriguez@gmail.com
+18,Valentina Sanchez,22,31567890,M,3112345678,valentinasanchez@gmail.com
+19,Alejandro Castro,29,31678905,H,3123456789,alejandro.castro@gmail.com
+20,Ana Maria Torres,35,31098765,M,3009876543,ana.torres@gmail.com
+21,Ricardo Martinez,31,31234567,H,3109876543,rmartinez@gmail.com
+22,Carolina Gomez,27,31456789,M,3009876543,carolina.gomez@gmail.com
+23,Felipe Rodriguez,23,32098765,H,3187654321,frodriguez@gmail.com
+24,Diana Lopez,21,31567890,M,3112345678,diana.lopez@gmail.com
+25,Jorge Suarez,30,31678905,H,3123456789,jorgesuarez@gmail.com
+26,Lucia Hernandez,34,31098765,M,3009876543,luciahernandez@gmail.com
+27,Andres Castro,38,31234567,H,3109876543,andres.castro@gmail.com
+28,Mariana Gomez,29,31456789,M,3009876543,mariana.gomez@gmail.com
+29,Pablo Rodriguez,26,32098765,H,3187654321,pablorodriguez@gmail.com
+30,Juliana Sanchez,24,31567890,M,3112345678,juliana.sanchez@gmail.com
+31,Carlos Perez,33,31678905,H,3123456789,carlosperez@gmail.com
+32,Luisa Martinez,36,31098765,M,3009876543,luisamartinez@gmail.com
+33,Mauricio Gomez,28,31234567,H,3109876543,mauriciogomez@gmail.com
+34,Valeria Rodriguez,25,31456789,M,3009876543,valeriarodriguez@gmail.com
+35,Alejandro Suarez,37,32098765,H,3187654321,alejandro.suarez@gmail.com
+36,Isabel Lopez,23,31567890,M,3112345678,isabel.lopez@gmail.com
+37,Esteban Hernandez,32,31678905,H,3123456789,estebanhernandez@gmail.com
+38,Adriana Castro,39,31098765,M,3009876543,adriana.castro@gmail.com
+39,Cristian Gomez,31,31234567,H,3109876543,cristiangomez@gmail.com
+40,Paola Rodriguez,27,31456789,M,3009876543,paolarodriguez@gmail.com
+41,Santiago Suarez,29,32098765,H,3187654321,santiagosuarez@gmail.com
+42,Antonella Martinez,26,31567890,M,3112345678,antonellamartinez@gmail.com
+43,Roberto Hernandez,34,31678905,H,3123456789,robertohernandez@gmail.com
+44,Valentina Castro,28,31098765,M,3009876543,valentinacastro@gmail.com
+45,Sebastian Gomez,38,31234567,H,3109876543,sebastiangomez@gmail.com
+46,Ana Sofia Rodriguez,30,31456789,M,3009876543,anasofiarodriguez@gmail.com
+47,Javier Suarez,33,32098765,H,3187654321,javiersuarez@gmail.com
+48,Camila Lopez,25,31567890,M,3112345678,camila.lopez@gmail.com
+49,Andres Hernandez,37,31678905,H,3123456789,andreshernandez@gmail.com
+50,Diana Castro,29,31098765,M,3009876543,diana.castro@gmail.com

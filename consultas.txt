@@ -1,1 +1,8 @@
 // CONSULTAS
+
+MATCH (u:Usuario {sexo: "GENERO"})-[v:MIRA]->(contenido)
+OPTIONAL MATCH (contenido)-[:PERTENECE_A]->(g:Genero)
+OPTIONAL MATCH (contenido)-[:ES_PARTE_DE]->()-[:TIENE_UNA]->()-[:PERTENECE_A]->(g:Genero)
+WITH g, COUNT(DISTINCT contenido) AS totalContenidos
+RETURN g.nombre AS Género, totalContenidos
+ORDER BY totalContenidos DESC;

@@ -24,10 +24,13 @@ ORDER BY vistas DESC
 
 //3) ¿Cuáles son los principales contenidos multimedia visualizados por los clientes con un origen cualquiera y rango de edad?
 MATCH (u:Usuario)-[:MIRA]->(c)
-WHERE u.edad >= 50 AND u.edad <= 60
-RETURN c.titulo AS Contenido, COUNT(*) AS Visualizaciones
-ORDER BY Visualizaciones DESC
-LIMIT 10;
+WHERE u.edad >= 20 AND u.edad <= 25
+WITH c, count(u) AS Vistas
+RETURN 
+    c.titulo AS Contenido,
+    Vistas
+ORDER BY Vistas DESC
+;
 
 //4)¿Cuál es el contenido multimedia más visualizado? Mostrar el título, país de origen, fecha de lanzamiento y número de visualizaciones
 MATCH (c)-[:MIRA]->(content),

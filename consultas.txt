@@ -33,14 +33,17 @@ ORDER BY Vistas DESC
 ;
 
 //4)¿Cuál es el contenido multimedia más visualizado? Mostrar el título, país de origen, fecha de lanzamiento y número de visualizaciones
-MATCH (c)-[:MIRA]->(content),
-      (content)-[:TIENE_ORIGEN]->(p:Pais)
-RETURN content.titulo AS Titulo,
-       p.nombre AS PaisOrigen,
-       content.anioLanzamiento AS FechaLanzamiento,
-       COUNT(c) AS Visualizaciones
-ORDER BY Visualizaciones DESC
-LIMIT 1;
+MATCH (u)-[:MIRA]->(c)
+OPTIONAL MATCH (c)-[:ES_PARTE_DE]->(t:Temporada)<-[:TIENE_UNA]-(s:Serie)-[:TIENE_ORIGEN]->(pS)
+OPTIONAL MATCH (c)-[:TIENE_ORIGEN]->(pC:Pais)
+WITH count(u) AS Vistas, c, t, pC, pS
+RETURN 
+    c.titulo AS Titulo,
+    COALESCE(pS.nombre, pC.nombre) AS pais,
+    COALESCE(c.anioLanzamiento, t.anioLanzamiento) AS FechaLanzamiento,
+    Vistas
+ORDER BY Vistas DESC
+;
 
 //5)Sugerir contenido similar respecto a un género multimedia visualizado por el usuario previamente
 MATCH (u:Usuario {idUsuario: toInteger(10)})-[:MIRA]->(content)

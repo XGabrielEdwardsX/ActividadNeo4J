@@ -14,11 +14,13 @@ RETURN
 ;
 
 // 2) ¿Cuáles son los contenidos multimedia más demandados por los clientes de un sexo (hombre/mujer)?
-MATCH (u:Usuario)-[:MIRA]->(content)
-WHERE u.sexo = 'H'  
-RETURN content.titulo AS Titulo, COUNT(*) AS Visualizaciones
-ORDER BY Visualizaciones DESC
-LIMIT 5;
+MATCH (u:Usuario {sexo: 'H'})-[:MIRA]->(c)
+WITH c, count(u) AS vistas
+RETURN 
+    c.titulo AS Contenido, 
+    vistas
+ORDER BY vistas DESC
+;
 
 //3) ¿Cuáles son los principales contenidos multimedia visualizados por los clientes con un origen cualquiera y rango de edad?
 MATCH (u:Usuario)-[:MIRA]->(c)

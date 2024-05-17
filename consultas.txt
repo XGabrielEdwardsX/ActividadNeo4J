@@ -46,24 +46,31 @@ ORDER BY Vistas DESC
 ;
 
 //5)Sugerir contenido similar respecto a un género multimedia visualizado por el usuario previamente
-MATCH (u:Usuario {idUsuario: toInteger(10)})-[:MIRA]->(content)
-MATCH (content)-[:PERTENECE_A]->(g:Genero)
-WITH g, u
-MATCH (g)<-[:PERTENECE_A]-(recommended)
-WHERE NOT (u)-[:MIRA]->(recommended)
-AND (recommended: Pelicula OR recommended: Serie OR recommended: Episodio) // Asegúrate de usar las etiquetas correctas que existen en tu base de datos
-RETURN recommended.titulo AS Titulo, g.nombre AS Genero
-LIMIT 5;
+MATCH (u:Usuario {idUsuario: 50})-[:MIRA]->(c)
+MATCH (c2)-[:PERTENECE_A]->(g:Genero)
+WHERE (c:Pelicula AND (c)-[:PERTENECE_A]->(g))
+    OR (c:Episodio AND (c)-[:ES_PARTE_DE]->(:Temporada)<-[:TIENE_UNA]-(:Serie)-[:PERTENECE_A]->(g))
+    AND NOT (u)-[:MIRA]->(c2)
+    AND NOT c = c2
+    AND (c2:Pelicula OR c2:Episodio)
+RETURN 
+    u.nombre AS Usuario,
+    c2.titulo AS Contenido,
+    g.nombre AS Género
+;
 
 //6)Sugerir contenido basado en un tipo de reacción como puede ser 'Me gusta' o 'Me encanta' respecto a otros usuarios que sean del mismo país
-//NO GENERA NADA
-MATCH (u:Usuario {idUsuario: toInteger(7)})-[:TIENE_NACIONALIDAD]->(p:Pais)
-MATCH (u2:Usuario)-[:TIENE_NACIONALIDAD]->(p)
-WHERE u2 <> u
-MATCH (u2)-[r:REACCIONA_A]->(content)
-WHERE r.tipoReaccion = 'Me gusta'
-WITH content, COUNT(*) AS popularity
-RETURN content.titulo AS Titulo, popularity
-ORDER BY popularity DESC
-LIMIT 10;
+MATCH (u1:Usuario {idUsuario: 2})-[:TIENE_NACIONALIDAD]->(p:Pais)<-[:TIENE_NACIONALIDAD]-(u2:Usuario)
+WHERE u1 <> u2
+MATCH (u2)-[r:REACCIONA_A]->(c)
+OPTIONAL MATCH (c)-[:ES_PARTE_DE]->(t:Temporada)<-[:TIENE_UNA]-(s:Serie)
+OPTIONAL MATCH (c)-[:TIENE_ORIGEN]->(pC:Pais)
+WHERE r.tipoReaccion IN ["Me gusta", "Me encanta"] 
+    AND NOT (u1)-[:MIRA]->(c) 
+RETURN DISTINCT
+    u1.nombre AS usuario, 
+    COALESCE(s.titulo, c.titulo) AS Recomendación,
+    COALESCE(t.anioLanzamiento, c.anioLanzamiento) AS Anio
+ORDER BY Recomendación, Anio
+;
 

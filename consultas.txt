@@ -1,12 +1,17 @@
 // CONSULTAS
 // 1) Consultar el historial de los contenidos multimedia visualizados por un usuario. Mostrar título, director, país de origen y fecha de visualización
-MATCH (u:Usuario {idUsuario: toInteger(7)})-[:MIRA]->(c)
+MATCH (u:Usuario {idUsuario: 1})-[m:MIRA]->(c)
+OPTIONAL MATCH (c)-[:ES_PARTE_DE]->(:Temporada)<-[:TIENE_UNA]-(s:Serie)-[:TIENE_ORIGEN]->(pS)
+OPTIONAL MATCH (c)-[:TIENE_ORIGEN]->(pC:Pais)
 OPTIONAL MATCH (c)-[:DIRIGIDA_POR]->(d:Director)
-OPTIONAL MATCH (c)-[:TIENE_ORIGEN]->(p:Pais)
-RETURN c.titulo AS Titulo,
-       d.nombre AS Director,
-       p.nombre AS Pais,
-       c.fechaVisualizacion AS FechaVisualizacion;
+WITH u, c, d, pC, pS, m
+RETURN 
+    u.nombre AS usuario,
+    c.titulo AS titulo,
+    d.nombre AS director,
+    COALESCE(pS.nombre, pC.nombre) AS pais,
+    m.fechaVisualizacion AS fechaVisualizacion
+;
 
 // 2) ¿Cuáles son los contenidos multimedia más demandados por los clientes de un sexo (hombre/mujer)?
 MATCH (u:Usuario)-[:MIRA]->(content)
